@@ -4,7 +4,16 @@ void main() {
   runApp(PointsCounter());
 }
 
-class PointsCounter extends StatelessWidget {
+class PointsCounter extends StatefulWidget {
+  @override
+  State<PointsCounter> createState() => _PointsCounterState();
+}
+
+class _PointsCounterState extends State<PointsCounter> {
+  int teamAPoints = 0;
+
+  int teamBPoints = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,8 +37,8 @@ class PointsCounter extends StatelessWidget {
                         style: TextStyle(fontSize: 35),
                       ),
                       Text(
-                        '0',
-                        style: TextStyle(fontSize: 200),
+                        '$teamAPoints',
+                        style: TextStyle(fontSize: 150),
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -39,7 +48,10 @@ class PointsCounter extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          teamAPoints++;
+                          setState(() {});
+                        },
                         child: Text(
                           'Add 1 Point',
                           style: TextStyle(
@@ -55,7 +67,10 @@ class PointsCounter extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          teamAPoints = teamAPoints + 2;
+                          setState(() {});
+                        },
                         child: Text(
                           'Add 2 Point',
                           style: TextStyle(
@@ -71,7 +86,10 @@ class PointsCounter extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          teamAPoints = teamAPoints + 3;
+                          setState(() {});
+                        },
                         child: Text(
                           'Add 3 Point',
                           style: TextStyle(
@@ -93,8 +111,8 @@ class PointsCounter extends StatelessWidget {
                         style: TextStyle(fontSize: 35),
                       ),
                       Text(
-                        '0',
-                        style: TextStyle(fontSize: 200),
+                        '$teamBPoints',
+                        style: TextStyle(fontSize: 150),
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -104,7 +122,10 @@ class PointsCounter extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          teamBPoints++;
+                          setState(() {});
+                        },
                         child: Text(
                           'Add 1 Point',
                           style: TextStyle(
@@ -120,7 +141,10 @@ class PointsCounter extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          teamBPoints = teamBPoints + 2;
+                          setState(() {});
+                        },
                         child: Text(
                           'Add 2 Point',
                           style: TextStyle(
@@ -136,7 +160,10 @@ class PointsCounter extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          teamBPoints = teamBPoints + 3;
+                          setState(() {});
+                        },
                         child: Text(
                           'Add 3 Point',
                           style: TextStyle(
@@ -158,7 +185,11 @@ class PointsCounter extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
                   )),
-              onPressed: () {},
+              onPressed: () {
+                teamAPoints = 0;
+                teamBPoints = 0;
+                setState(() {});
+              },
               child: Text(
                 'Reset',
                 style: TextStyle(
