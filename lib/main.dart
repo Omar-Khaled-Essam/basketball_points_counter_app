@@ -16,6 +16,7 @@ class PointsCounter extends StatelessWidget {
         ),
         body: Column(
           children: [
+            Spacer(),
             IntrinsicHeight(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -148,6 +149,24 @@ class PointsCounter extends StatelessWidget {
                 ],
               ),
             ),
+            Spacer(),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.orange,
+                  minimumSize: Size(150, 40),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  )),
+              onPressed: () {},
+              child: Text(
+                'Reset',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Spacer(),
           ],
         ),
       ),
